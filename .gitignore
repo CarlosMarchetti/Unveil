@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.work/
+helper/lib/
+helper/target/
+test-output/
+*.jar
+deobf-report.json
