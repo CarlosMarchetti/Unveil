@@ -6,3 +6,12 @@ helper/target/
 test-output/
 *.jar
 deobf-report.json
+name-recovery/
+Unveil-project.zip
+delivery/
+out.json
+unpack-plan.json
+*.exe
+*.dll
+*.bin
+*.zip

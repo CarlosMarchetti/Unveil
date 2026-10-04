@@ -135,12 +135,12 @@ def candidates(classes):
             base=('java/util/Base64$Decoder','decode') in calls
             cipher=('javax/crypto/Cipher','doFinal') in calls
             xor=any(i.op==130 for i in m.insns) and ('java/lang/String','toCharArray') in calls
-            if not base or not (cipher or xor): continue
+            if not (cipher or xor): continue
             indicators=[o+'.'+n for o,n in sorted(calls) if o.startswith(('javax/crypto/','java/security/MessageDigest','java/util/Base64'))]
             if xor: indicators+=['IXOR','String.toCharArray']
             result[(c.name,m.name,m.desc)]={'owner':c.name,'method':m.name,'descriptor':m.desc,
                 'confidence':min(1.0,0.85+0.02*(len(indicators)-2)) if cipher else 0.8,
-                'indicators':indicators,'confirmed':False,'kind':'cipher' if cipher else 'base64-xor'}
+                'indicators':indicators,'confirmed':False,'kind':'cipher' if cipher else 'base64-xor' if base else 'xor'}
     return result
 
 

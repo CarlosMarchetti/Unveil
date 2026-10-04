@@ -1,0 +1,239 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unveil — relatório</title><style>body{max-width:1100px;margin:3rem auto;padding:0 1rem;font:16px system-ui;background:#111827;color:#e5e7eb}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#1f2937;padding:1.5rem}</style><h1>Unveil</h1><p>Análise estática · relatório completo</p><pre>{
+  &quot;schemaVersion&quot;: &quot;1.0&quot;,
+  &quot;tool&quot;: {
+    &quot;name&quot;: &quot;Unveil&quot;,
+    &quot;version&quot;: &quot;0.1.0&quot;
+  },
+  &quot;input&quot;: {
+    &quot;path&quot;: &quot;generated/fixture.exe&quot;,
+    &quot;type&quot;: &quot;PE&quot;,
+    &quot;sha256&quot;: &quot;d3717afb04772a89491d7262db07446a7eb7dce07e5bd4096c5dca4a18150995&quot;,
+    &quot;size&quot;: 2575
+  },
+  &quot;mode&quot;: &quot;analyze&quot;,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;metadata&quot;: {
+    &quot;format&quot;: &quot;PE32+&quot;,
+    &quot;architecture&quot;: &quot;AMD64&quot;,
+    &quot;subsystem&quot;: 3,
+    &quot;imageBase&quot;: 5368709120,
+    &quot;entryPoint&quot;: 4096,
+    &quot;timestamp&quot;: 0,
+    &quot;sections&quot;: [
+      {
+        &quot;name&quot;: &quot;.text&quot;,
+        &quot;rva&quot;: 4096,
+        &quot;virtualSize&quot;: 2048,
+        &quot;offset&quot;: 512,
+        &quot;size&quot;: 2048,
+        &quot;permissions&quot;: &quot;RWX&quot;,
+        &quot;entropy&quot;: 0.4103,
+        &quot;sha256&quot;: &quot;2f57cd0d9999dd51f91fd304c558bd2df04ef1f9effe808a315ed5476ed20c56&quot;
+      }
+    ],
+    &quot;imports&quot;: [
+      {
+        &quot;library&quot;: &quot;KERNEL32.dll&quot;,
+        &quot;delayed&quot;: false,
+        &quot;symbols&quot;: [
+          {
+            &quot;name&quot;: &quot;ExitProcess&quot;,
+            &quot;ordinal&quot;: null,
+            &quot;address&quot;: 5368713584
+          }
+        ]
+      }
+    ],
+    &quot;exports&quot;: [
+      {
+        &quot;name&quot;: &quot;answer&quot;,
+        &quot;ordinal&quot;: 1,
+        &quot;rva&quot;: 4096,
+        &quot;forwarder&quot;: null
+      }
+    ],
+    &quot;tlsCallbacks&quot;: [
+      {
+        &quot;va&quot;: 5368713216,
+        &quot;rva&quot;: 4096
+      }
+    ],
+    &quot;overlay&quot;: {
+      &quot;offset&quot;: 2560,
+      &quot;size&quot;: 15,
+      &quot;sha256&quot;: &quot;a18ec721fcd1a24dcf7361a19f94ef49a9c4634b62fd4026963ecc6023368893&quot;
+    },
+    &quot;certificate&quot;: {
+      &quot;present&quot;: false,
+      &quot;verified&quot;: false
+    },
+    &quot;strings&quot;: [
+      {
+        &quot;offset&quot;: 392,
+        &quot;encoding&quot;: &quot;ascii&quot;,
+        &quot;value&quot;: &quot;.text&quot;,
+        &quot;truncated&quot;: false
+      },
+      {
+        &quot;offset&quot;: 896,
+        &quot;encoding&quot;: &quot;ascii&quot;,
+        &quot;value&quot;: &quot;KERNEL32.dll&quot;,
+        &quot;truncated&quot;: false
+      },
+      {
+        &quot;offset&quot;: 914,
+        &quot;encoding&quot;: &quot;ascii&quot;,
+        &quot;value&quot;: &quot;ExitProcess&quot;,
+        &quot;truncated&quot;: false
+      },
+      {
+        &quot;offset&quot;: 1104,
+        &quot;encoding&quot;: &quot;ascii&quot;,
+        &quot;value&quot;: &quot;fixture.dll&quot;,
+        &quot;truncated&quot;: false
+      },
+      {
+        &quot;offset&quot;: 1168,
+        &quot;encoding&quot;: &quot;ascii&quot;,
+        &quot;value&quot;: &quot;answer&quot;,
+        &quot;truncated&quot;: false
+      },
+      {
+        &quot;offset&quot;: 2560,
+        &quot;encoding&quot;: &quot;ascii&quot;,
+        &quot;value&quot;: &quot;fixture-overlay&quot;,
+        &quot;truncated&quot;: false
+      }
+    ],
+    &quot;stringsTruncated&quot;: false,
+    &quot;dataDirectories&quot;: [
+      {
+        &quot;index&quot;: 0,
+        &quot;address&quot;: 4608,
+        &quot;size&quot;: 128,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 1,
+        &quot;address&quot;: 4352,
+        &quot;size&quot;: 40,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 2,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 3,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 4,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;file-offset&quot;
+      },
+      {
+        &quot;index&quot;: 5,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 6,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 7,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 8,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 9,
+        &quot;address&quot;: 4864,
+        &quot;size&quot;: 40,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 10,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 11,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 12,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 13,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 14,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      },
+      {
+        &quot;index&quot;: 15,
+        &quot;address&quot;: 0,
+        &quot;size&quot;: 0,
+        &quot;addressKind&quot;: &quot;RVA&quot;
+      }
+    ]
+  },
+  &quot;findings&quot;: [
+    {
+      &quot;id&quot;: &quot;native.section.rwx&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;confidence&quot;: 100,
+      &quot;evidence&quot;: [
+        &quot;Section is writable and executable&quot;
+      ],
+      &quot;locations&quot;: [
+        {
+          &quot;section&quot;: &quot;.text&quot;,
+          &quot;rva&quot;: 4096
+        }
+      ],
+      &quot;limitations&quot;: [
+        &quot;RWX permissions alone do not establish malicious behavior or packing.&quot;
+      ]
+    }
+  ],
+  &quot;diagnostics&quot;: [],
+  &quot;transformations&quot;: [],
+  &quot;output&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Read-only PE analysis; executable code and TLS callbacks are never invoked.&quot;,
+    &quot;Authenticode presence is reported without cryptographic trust verification.&quot;,
+    &quot;Overlay includes any certificate table after the last section.&quot;,
+    &quot;Strings: ASCII and ASCII-range UTF-16LE, at most 10000 values, 2048 bytes per value.&quot;,
+    &quot;Resources, relocations, debug and unwind directories are inventoried but not decoded.&quot;,
+    &quot;ELF, disassembly, CFG and native rewriting belong to later milestones.&quot;
+  ]
+}
+</pre></html>

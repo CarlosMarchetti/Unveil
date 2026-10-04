@@ -9,7 +9,7 @@ import subprocess
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
-ARTIFACTS = ('asm','asm-tree','asm-analysis','asm-util')
+ARTIFACTS = ('asm','asm-tree','asm-analysis','asm-util','asm-commons')
 
 
 def build(download=True):
@@ -27,13 +27,13 @@ def build(download=True):
             if hashlib.sha256(data).hexdigest()!=expected: raise RuntimeError('Dependency hash mismatch')
             dest.write_bytes(data)
     cp = os.pathsep.join([str(target),*(str(lib/(a+'-9.8.jar')) for a in ARTIFACTS)])
-    src = ROOT/'helper/src/main/java/SafeWriter.java'
+    sources = sorted((ROOT/'helper/src/main/java').glob('*.java'))
     stamp=target/'build.sha256'
-    digest=hashlib.sha256(src.read_bytes()).hexdigest()
+    digest=hashlib.sha256(b''.join(src.name.encode()+src.read_bytes() for src in sources)).hexdigest()
     if not stamp.exists() or stamp.read_text()!=digest:
         javac=shutil.which('javac')
         if not javac: raise RuntimeError('JDK 8+ required: javac not found in PATH')
-        result=subprocess.run([javac,'-encoding','UTF-8','-source','8','-target','8','-cp',cp,'-d',str(target),str(src)],capture_output=True,timeout=120)
+        result=subprocess.run([javac,'-encoding','UTF-8','-source','8','-target','8','-cp',cp,'-d',str(target),*(str(src) for src in sources)],capture_output=True,timeout=120)
         diagnostic=result.stderr.decode('utf-8','replace')
         # Some JDK builds return 0 after a file-manager close failure. Never
         # mark that invocation successful just because a stale .class exists.

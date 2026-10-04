@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "Unveil",
+    "version": "0.1.0"
+  },
+  "input": {
+    "path": "generated/input.jar",
+    "type": "JAR",
+    "sha256": "9368419ff55bf193d95953af341d69b83ffe31101bd1cbdc53c8e1af06bf569d",
+    "size": 338
+  },
+  "mode": "plan",
+  "status": "completed",
+  "metadata": {
+    "resources": 1,
+    "signed": false,
+    "multiRelease": false,
+    "classes": 1,
+    "methods": 1,
+    "fields": 0,
+    "strings": 0,
+    "classVersions": [
+      52
+    ],
+    "classIndex": [
+      {
+        "entry": "Example.class",
+        "name": "Example",
+        "super": "java/lang/Object",
+        "interfaces": [],
+        "methods": 1,
+        "fields": 0
+      }
+    ],
+    "stringPools": [],
+    "decryptors": []
+  },
+  "findings": [
+    {
+      "id": "jvm.constant",
+      "severity": "info",
+      "confidence": 90,
+      "evidence": [
+        "1 statically resolvable replacement sites"
+      ],
+      "locations": [
+        {
+          "entry": "Example.class",
+          "method": "answer",
+          "descriptor": "()I",
+          "offset": 0
+        }
+      ],
+      "recommendedTransformers": [
+        "constant"
+      ],
+      "limitations": [
+        "Detection is heuristic; constant expressions also occur in unobfuscated software.",
+        "Plans describe this input snapshot; later passes can expose more candidates."
+      ]
+    }
+  ],
+  "diagnostics": [],
+  "transformations": [],
+  "output": null,
+  "plan": [
+    {
+      "id": "constant",
+      "candidates": 1,
+      "status": "recommended"
+    },
+    {
+      "id": "string-pool",
+      "candidates": 0,
+      "status": "no_candidates"
+    },
+    {
+      "id": "string-decrypt",
+      "candidates": 0,
+      "status": "no_candidates"
+    }
+  ],
+  "limitations": [
+    "Detection is heuristic; constant expressions also occur in unobfuscated software.",
+    "Plans describe this input snapshot; later passes can expose more candidates.",
+    "No target classes are loaded or executed. Interpretation models only allowed operations."
+  ]
+}

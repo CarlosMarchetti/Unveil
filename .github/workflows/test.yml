@@ -1,0 +1,25 @@
+name: Tests
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m ruff check unveil --select F
+      - run: python -m unittest discover -s tests -v
+      - run: python -c "from deobf.writer import build; build()"
+      - run: python tests/integration.py
+      - run: python tests/names_integration.py
+      - run: python tests/framework_integration.py
+      - run: python tests/strings_integration.py
